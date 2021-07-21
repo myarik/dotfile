@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+declare -a PIP_APPS=(
+  Pygments
+  ipython
+  black
+)
+
+
+function _install_pip() {
+  bot "Checking pip packages ..."
+
+  # In order to silence the DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020 warning
+  export PYTHONWARNINGS=ignore
+
+  if [[ $(command -v pip) == "" ]]; then
+    bot "Going to install pip, this command requires sudo"
+    sudo easy_install pip
+  else
+    pip install --upgrade --user pip
+  fi
+
+  # Install pip apps
+  for pkg in ${PIP_APPS[@]}; do
+    if pip list | grep "^${pkg}"; then
+      ok "[pip] Package '$pkg' is already installed"
+
+      # Checking if the package needs update
+      if pip list --outdated | grep "^${pkg}"; then
+        warn "[pip] Package '$pkg' is not up to date, updating it ..."
+        pip install "$pkg" --upgrade --user
+      fi
+
+    else
+      warn "[pip] Package '$pkg' is not installed"
+
+      # It throws a zsh:1: command not found: pygmentize every time you do a cat file if it's not installed this way
+      if [ $pkg == "Pygments" ]; then
+        sudo easy_install Pygments
+      else
+        pip install "$pkg" --user
+      fi
+    fi
+  done
+  unset PIP_APPS
+
+  ok
+}
+
+# Ask for the administrator password upfront
+sudo -v
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+source .echos
+# Install pip packages
+_install_pip
