@@ -148,5 +148,3 @@ function _install_brew() {
 source .echos
 # Install brew packages
 install_brew_packages
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
