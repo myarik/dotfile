@@ -3,7 +3,7 @@
 # BREW APPS
 # ------------------------------------------------------------------------------
 declare -a BREW_APPS=(
-  tree  
+  tree
   ack
   httpie
   awscli
@@ -15,15 +15,23 @@ declare -a BREW_APPS=(
   screen
   node
   nvm
+  # file reader
+  # https://github.com/sharkdp/bat
+  bat
+  # log viwer
+  # https://lnav.org/downloads
+  lnav
+  # lazygit
+  # https://github.com/jesseduffield/lazygit
+  lazygit
   openssl
   openvpn
   vim
   yarn
   pyenv
-  # you can specify version go@version 
+  # you can specify version go@version
   go@1.16
 )
-# ------------------------------------------------------------------------------
 
 # BREW CASK APPS
 # ------------------------------------------------------------------------------
