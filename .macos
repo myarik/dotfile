@@ -226,6 +226,9 @@ tell application "Terminal"
 	end repeat
 end tell
 EOD
+
+# Install the Solarized Dark theme for iTerm
+open "${HOME}.dotfile/init/material-design-colors.itermcolors"
 ###############################################################################
 # Google Chrome & Google Chrome Canary                                        #
 ###############################################################################
