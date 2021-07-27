@@ -4,7 +4,7 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install the Material Design theme for iTerm
-open "${HOME}.dotfile/init/material-design-colors.itermcolors"
+open "${HOME}/.dotfile/init/material-design-colors.itermcolors"
 
 #customizing zsh
 brew install romkatv/powerlevel10k/powerlevel10k
