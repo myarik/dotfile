@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+declare -a DEVOPS_PIP_APPS=(
+  ansible
+  ipython
+  black
+)
+
+PYTHON_VERSION="3.9.6"
+
+source .echos
+
+function _install_devops_pip() {
+  bot "Checking pip packages ..."
+
+  # In order to silence the DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020 warning
+  export PYTHONWARNINGS=ignore
+
+  if [[ $(command -v pip) == "" ]]; then
+    bot "Going to install pip, this command requires sudo"
+    sudo easy_install pip
+  else
+    pip install --upgrade
+  fi
+
+  # Install pip apps
+  for pkg in ${DEVOPS_PIP_APPS[@]}; do
+    if pip list | grep "^${pkg}"; then
+      ok "[pip] Package '$pkg' is already installed"
+
+      # Checking if the package needs update
+      if pip list --outdated | grep "^${pkg}"; then
+        warn "[pip] Package '$pkg' is not up to date, updating it ..."
+        pip install "$pkg" --upgrade
+      fi
+
+    else
+      warn "[pip] Package '$pkg' is not installed"
+      pip install "$pkg"
+    fi
+  done
+  unset DEVOPS_PIP_APPS
+
+  ok
+}
+
+bot "Installing python ..."
+
+echo ${PYTHON_VERSION}
+
+pyenv install $PYTHON_VERSION
+
+bot "Creating virtualenv ..."
+
+pyenv virtualenv ${PYTHON_VERSION} devops
+
+
+source ~/.pyenv/versions/devops/bin/activate
+
+bot "Install packages ..."
+
+_install_devops_pip
+
+# TODO install teraform
