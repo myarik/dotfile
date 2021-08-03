@@ -62,6 +62,7 @@ declare -a BREW_CASK_APPS=(
   the-unarchiver 
   charles
   grammarly
+  zoom
 )
 
 function install_brew_packages() {

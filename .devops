@@ -61,4 +61,9 @@ bot "Install packages ..."
 
 _install_devops_pip
 
-# TODO install teraform
+#!/usr/bin/env bash
+
+source .echos
+
+brew install warrensbox/tap/tfswitch
+
