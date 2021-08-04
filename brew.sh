@@ -32,6 +32,8 @@ declare -a BREW_APPS=(
   zsh
   # you can specify version go@version
   go@1.16
+  # midnight-commander
+  mc 
 )
 
 # BREW CASK APPS
