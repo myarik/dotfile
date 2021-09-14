@@ -19,3 +19,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # zsh-syntax-highlighting plugin
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+
+# Install fonts
+open "${HOME}/.dotfile/init/MesloLGS NF Regular.ttf"
+open "${HOME}/.dotfile/init/MesloLGS NF Italic.ttf"
+open "${HOME}/.dotfile/init/MesloLGS NF Bold.ttf"
+open "${HOME}/.dotfile/init/MesloLGS NF Bold Italic.ttf"
+
+# vimrc settings
+ln -s ~/.dotfile/init/.vimrc ~/.vimrc
