@@ -63,6 +63,7 @@ declare -a BREW_CASK_APPS=(
   charles
   grammarly
   zoom
+  mimestream
 )
 
 function install_brew_packages() {
