@@ -66,6 +66,7 @@ declare -a BREW_CASK_APPS=(
   grammarly
   zoom
   mimestream
+  notion
 )
 
 function install_brew_packages() {
