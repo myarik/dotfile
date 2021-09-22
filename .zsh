@@ -29,3 +29,8 @@ open "${HOME}/.dotfile/init/MesloLGS NF Bold Italic.ttf"
 
 # vimrc settings
 ln -s ~/.dotfile/init/.vimrc ~/.vimrc
+
+ln -s ~/.dotfile/.zsh_profile ~/.zsh_profile
+ln -s ~/.dotfile/.aliases ~/.aliases
+ln -s ~/.dotfile/.functions ~/.functions
+echo 'source ~/.zsh_profile' >>~/.zshrc
