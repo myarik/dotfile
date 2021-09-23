@@ -5,3 +5,12 @@ for file in ~/.{aliases,functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
+
+# Load pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
+# Load nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

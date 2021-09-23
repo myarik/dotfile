@@ -29,6 +29,10 @@ declare -a BREW_APPS=(
   vim
   yarn
   pyenv
+  pyenv-virtualenv
+  libjpeg
+  # cannot compile the psycopg2 without postgresql
+  postgresql
   zsh
   # you can specify version go@version
   go@1.16
@@ -67,6 +71,7 @@ declare -a BREW_CASK_APPS=(
   zoom
   mimestream
   notion
+  anki
 )
 
 function install_brew_packages() {
