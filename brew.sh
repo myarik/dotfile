@@ -38,6 +38,9 @@ declare -a BREW_APPS=(
   go@1.16
   # midnight-commander
   mc 
+  # react native 
+  cocoapods
+  watchman
 )
 
 # BREW CASK APPS
@@ -72,6 +75,10 @@ declare -a BREW_CASK_APPS=(
   mimestream
   notion
   anki
+  # Android IDE
+  adoptopenjdk/openjdk/adoptopenjdk8
+  # React debugger
+  react-native-debugger
 )
 
 function install_brew_packages() {
