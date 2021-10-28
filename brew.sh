@@ -41,6 +41,10 @@ declare -a BREW_APPS=(
   # react native 
   cocoapods
   watchman
+  # github action
+  act
+  # https://github.com/schollz/croc cool tool for sending files
+  croc
 )
 
 # BREW CASK APPS
