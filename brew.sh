@@ -45,6 +45,8 @@ declare -a BREW_APPS=(
   act
   # https://github.com/schollz/croc cool tool for sending files
   croc
+  # httpie change
+  rs/tap/curlie
 )
 
 # BREW CASK APPS
