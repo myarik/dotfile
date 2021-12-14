@@ -85,6 +85,8 @@ declare -a BREW_CASK_APPS=(
   adoptopenjdk/openjdk/adoptopenjdk8
   # React debugger
   react-native-debugger
+  # Figma
+  figma
 )
 
 function install_brew_packages() {
