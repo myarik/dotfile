@@ -47,6 +47,10 @@ declare -a BREW_APPS=(
   croc
   # httpie change
   rs/tap/curlie
+  # restic
+  restic
+  # https://github.com/rakyll/hey
+  hey
 )
 
 # BREW CASK APPS
