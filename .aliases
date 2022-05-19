@@ -61,3 +61,27 @@ alias cleanup_ds_store="find . -type f -name '*.DS_Store' -ls -delete"
 
 # Mc
 alias mc='mc -b -u'
+
+# AWS
+function aws_clusters() {
+  /usr/local/bin/aws ecs list-clusters
+}
+function aws_services() {
+  /usr/local/bin/aws ecs list-services --cluster $1;
+}
+
+# IHI 
+
+function ihi_connect() {
+  export TASK_ID=$( aws ecs list-tasks --cluster=$1 --service-name=$2 --output json | jq -r '.taskArns[0]' )
+  export CONTAINER_INSTANCE_ID=$( aws ecs describe-tasks --cluster=$1 --tasks $TASK_ID --output json | jq -r '.tasks[0].containerInstanceArn' )
+  export EC2_INSTANCE=$( aws ecs describe-container-instances --cluster=$1 --container-instances $CONTAINER_INSTANCE_ID --output json | jq -r '.containerInstances[0].ec2InstanceId' )
+  export EC2_IP=$( aws ec2 describe-instances --instance-ids $EC2_INSTANCE --output json | jq -r '.Reservations[0].Instances[0].PrivateIpAddress' )
+
+  echo Connecting to: $EC2_IP
+
+  ssh -i ~/.ssh/ihi/ihateironing ec2-user@$EC2_IP
+}
+
+alias ihi_prod='ihi_connect production-public-cluster webapp'
+alias ihi_dev='ihi_connect staging-public-cluster webapp'
