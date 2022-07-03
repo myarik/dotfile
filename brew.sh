@@ -7,6 +7,8 @@ declare -a BREW_APPS=(
   ack
   httpie
   awscli
+  # SAM
+  aws-sam-cli
   gh
   git
   htop
@@ -35,7 +37,7 @@ declare -a BREW_APPS=(
   postgresql
   zsh
   # you can specify version go@version
-  go@1.16
+  #go@1.16
   # midnight-commander
   mc 
   # react native 

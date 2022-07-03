@@ -76,7 +76,7 @@ function ihi_connect() {
   export TASK_ID=$( aws ecs list-tasks --cluster=$1 --service-name=$2 --output json | jq -r '.taskArns[0]' )
   export CONTAINER_INSTANCE_ID=$( aws ecs describe-tasks --cluster=$1 --tasks $TASK_ID --output json | jq -r '.tasks[0].containerInstanceArn' )
   export EC2_INSTANCE=$( aws ecs describe-container-instances --cluster=$1 --container-instances $CONTAINER_INSTANCE_ID --output json | jq -r '.containerInstances[0].ec2InstanceId' )
-  export EC2_IP=$( aws ec2 describe-instances --instance-ids $EC2_INSTANCE --output json | jq -r '.Reservations[0].Instances[0].PrivateIpAddress' )
+  export EC2_IP=$( aws ec2 describe-instances --instance-ids $EC2_INSTANCE --output json | jq -r '.Reservations[0].Instances[0].PublicIpAddress' )
 
   echo Connecting to: $EC2_IP
 
