@@ -20,6 +20,9 @@ declare -a BREW_APPS=(
   # file reader
   # https://github.com/sharkdp/bat
   bat
+  # git delta
+  # https://github.com/dandavison/delta
+  git-delta
   # log viwer
   # https://lnav.org/downloads
   lnav
