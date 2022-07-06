@@ -17,6 +17,7 @@ declare -a BREW_APPS=(
   screen
   node
   nvm
+  wget
   # file reader
   # https://github.com/sharkdp/bat
   bat
