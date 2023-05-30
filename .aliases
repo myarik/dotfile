@@ -85,3 +85,10 @@ function ihi_connect() {
 
 alias ihi_prod='ihi_connect production-public-cluster webapp'
 alias ihi_dev='ihi_connect staging-public-cluster webapp'
+
+function ihi_task() {
+  # Example ihi_task feat https://3.basecamp.com/3419512/buckets/28327330/todos/5281203238
+  sufix=$(echo $2 | awk -F '/' '{print $6"_"$8}')
+  echo $1-$sufix;
+}
+

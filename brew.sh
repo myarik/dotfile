@@ -97,6 +97,8 @@ declare -a BREW_CASK_APPS=(
   react-native-debugger
   # Figma
   figma
+  # Raycast
+  raycast
 )
 
 function install_brew_packages() {
