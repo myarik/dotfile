@@ -32,6 +32,7 @@ declare -a BREW_APPS=(
   lazygit
   openssl
   openvpn
+  tailscale
   vim
   yarn
   pyenv
